@@ -6,42 +6,42 @@ export const anthropicClient = new Anthropic({
 })
 
 export async function reviewCode(code: string, language: string = 'auto'): Promise<ReviewResult> {
-  const prompt = `You are an expert code reviewer. Analyze the following ${language !== 'auto' ? language : ''} code and return a JSON object with this exact structure:
+  const prompt = `Eres un experto revisor de código. Analiza el siguiente código${language !== 'auto' ? ` en ${language}` : ''} y devuelve un objeto JSON con esta estructura exacta. Responde siempre en español, independientemente del idioma del código:
 
 {
-  "summary": "Brief overall assessment in 2-3 sentences",
-  "score": <number 0-100>,
+  "summary": "Valoración general en 2-3 frases en español",
+  "score": <número 0-100>,
   "issues": [
     {
       "type": "error|warning|info",
-      "line": <optional line number>,
-      "message": "Description of the issue",
-      "fix": "How to fix it"
+      "line": <número de línea opcional>,
+      "message": "Descripción del problema en español",
+      "fix": "Cómo solucionarlo en español"
     }
   ],
   "suggestions": [
     {
-      "category": "Readability|Performance|Best Practices|Architecture",
-      "message": "Suggestion description",
-      "example": "Optional code example"
+      "category": "Legibilidad|Rendimiento|Buenas Prácticas|Arquitectura",
+      "message": "Descripción de la sugerencia en español",
+      "example": "Ejemplo de código opcional"
     }
   ],
   "security": [
     {
       "severity": "critical|high|medium|low",
-      "message": "Security issue description",
-      "fix": "How to fix it"
+      "message": "Descripción del problema de seguridad en español",
+      "fix": "Cómo solucionarlo en español"
     }
   ],
   "performance": [
     {
-      "message": "Performance note",
+      "message": "Nota de rendimiento en español",
       "impact": "high|medium|low"
     }
   ]
 }
 
-Return ONLY the JSON, no markdown, no explanation.
+Devuelve ÚNICAMENTE el JSON, sin markdown, sin explicaciones.
 
 Code to review:
 \`\`\`
