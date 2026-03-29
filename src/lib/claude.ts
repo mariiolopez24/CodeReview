@@ -58,7 +58,11 @@ ${code}
   if (content.type !== 'text') throw new Error('Unexpected response type')
 
   try {
-    return JSON.parse(content.text) as ReviewResult
+    let text = content.text.trim()
+    if (text.startsWith('```')) {
+      text = text.replace(/^```(?:json)?\n?/, '').replace(/\n?```$/, '').trim()
+    }
+    return JSON.parse(text) as ReviewResult
   } catch {
     throw new Error('Failed to parse review result')
   }
