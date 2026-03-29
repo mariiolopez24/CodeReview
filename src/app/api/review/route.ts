@@ -39,7 +39,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Code is too long (max 50,000 chars)' }, { status: 400 })
     }
 
-    const result = await reviewCode(code, language)
+    // Detect user locale from cookie or Accept-Language header
+    const localeCookie = request.cookies.get('NEXT_LOCALE')?.value
+    const acceptLang = request.headers.get('accept-language') ?? ''
+    const browserLang = acceptLang.split(',')[0]?.split('-')[0]?.toLowerCase()
+    const locale = localeCookie ?? (['es', 'en'].includes(browserLang) ? browserLang : 'es')
+
+    const result = await reviewCode(code, language, locale)
 
     // Save review and increment counter
     const { data: review } = await supabase

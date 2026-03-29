@@ -1,0 +1,165 @@
+{
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Precios",
+    "compare": "Comparar",
+    "login": "Iniciar sesión",
+    "signup": "Empezar gratis",
+    "account": "Mi cuenta",
+    "dashboard": "Ir al dashboard",
+    "admin": "Admin",
+    "logout": "Cerrar sesión"
+  },
+  "hero": {
+    "badge": "Detecta vulnerabilidades de seguridad antes que nadie",
+    "title": "Code Review con IA enfocado en",
+    "titleHighlight": "Seguridad",
+    "subtitle": "Detecta vulnerabilidades OWASP, bugs críticos y problemas de performance en segundos. Sin instalar nada. Sin conectar tu repositorio.",
+    "cta": "Analizar mi código gratis →",
+    "compare": "Comparar con alternativas →",
+    "social1": "5 reviews gratuitos · Sin tarjeta de crédito · Listo en 30 segundos",
+    "noGithub": "✓ Sin registro en Github ni GitLab",
+    "langs": "✓ Compatible con 10+ lenguajes",
+    "owasp": "✓ Análisis OWASP Top 10",
+    "time": "✓ Resultado en menos de 30s"
+  },
+  "tagline": "Más que un linter. Un experto en seguridad.",
+  "features": {
+    "title": "Todo lo que necesitas para código seguro",
+    "subtitle": "Análisis profundo en segundos, sin configuración, sin permisos a tu repositorio.",
+    "security": {
+      "title": "Análisis de Seguridad",
+      "desc": "Detecta vulnerabilidades OWASP Top 10, inyecciones SQL, XSS, CSRF y más antes de que lleguen a producción."
+    },
+    "bugs": {
+      "title": "Detección de Bugs",
+      "desc": "Encuentra bugs críticos, race conditions, memory leaks y errores lógicos que los linters no detectan."
+    },
+    "performance": {
+      "title": "Optimización de Performance",
+      "desc": "Identifica cuellos de botella, queries N+1, operaciones innecesarias y sugiere optimizaciones concretas."
+    },
+    "instant": {
+      "title": "Resultado Instantáneo",
+      "desc": "Análisis completo en menos de 30 segundos. Sin instalar extensiones, sin conectar GitHub, sin configuración."
+    },
+    "langs": {
+      "title": "Multi-lenguaje",
+      "desc": "Compatible con Python, JavaScript, TypeScript, Java, Go, PHP, Ruby, Rust, C++ y más de 10 lenguajes."
+    },
+    "privacy": {
+      "title": "Privacidad Total",
+      "desc": "Tu código no se almacena. Cada análisis es efímero. Cumplimiento GDPR. Tus secretos son tuyos."
+    }
+  },
+  "pricing": {
+    "title": "Precios simples y transparentes",
+    "subtitle": "Empieza gratis. Sin tarjeta de crédito.",
+    "free": "Gratis",
+    "month": "/mes",
+    "currentPlan": "Plan actual",
+    "startFree": "Empezar gratis",
+    "getStarted": "Empezar ahora",
+    "contact": "Contactar",
+    "popular": "Más popular",
+    "reviews": "reviews/mes",
+    "unlimited": "Ilimitados"
+  },
+  "dashboard": {
+    "title": "Analiza tu código",
+    "subtitle": "Pega tu código, selecciona el lenguaje y obtén un análisis detallado en segundos.",
+    "placeholder": "Pega aquí tu código...",
+    "language": "Lenguaje",
+    "auto": "Auto-detectar",
+    "analyze": "Analizar código",
+    "analyzing": "Analizando...",
+    "score": "Puntuación",
+    "issues": "Problemas",
+    "security": "Seguridad",
+    "suggestions": "Sugerencias",
+    "performance": "Rendimiento",
+    "noIssues": "Sin problemas detectados",
+    "noSecurity": "Sin problemas de seguridad",
+    "noSuggestions": "Sin sugerencias",
+    "noPerformance": "Sin notas de rendimiento",
+    "limitReached": "Has alcanzado el límite de reviews gratuitos.",
+    "upgrade": "Hazte Pro",
+    "reviewsLeft": "reviews restantes",
+    "unlimited": "Ilimitados",
+    "plan": "Plan"
+  },
+  "auth": {
+    "loginTitle": "Iniciar sesión",
+    "loginSubtitle": "Bienvenido de nuevo",
+    "signupTitle": "Crear cuenta",
+    "signupSubtitle": "Empieza gratis, sin tarjeta",
+    "email": "Email",
+    "password": "Contraseña",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "loginBtn": "Iniciar sesión",
+    "signupBtn": "Crear cuenta",
+    "noAccount": "¿No tienes cuenta?",
+    "hasAccount": "¿Ya tienes cuenta?",
+    "createOne": "Créala gratis",
+    "loginHere": "Inicia sesión",
+    "forgotTitle": "Recuperar contraseña",
+    "forgotSubtitle": "Te enviaremos un enlace a tu email",
+    "sendLink": "Enviar enlace",
+    "backToLogin": "← Volver al login",
+    "resetTitle": "Nueva contraseña",
+    "resetBtn": "Cambiar contraseña"
+  },
+  "account": {
+    "title": "Mi cuenta",
+    "info": "Información de cuenta",
+    "emailLabel": "Email",
+    "changePassword": "Cambiar contraseña →",
+    "newPassword": "Nueva contraseña",
+    "confirmPassword": "Confirmar nueva contraseña",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "subscription": "Suscripción",
+    "active": "Activo",
+    "manageBilling": "Gestionar facturación",
+    "upgradePro": "Mejorar a Pro →",
+    "usage": "Uso este mes",
+    "reviewsDone": "Reviews realizados",
+    "danger": "Zona de peligro",
+    "deleteAccount": "Eliminar cuenta",
+    "deleteDesc": "Esta acción es irreversible. Se borrarán todos tus datos.",
+    "confirmDelete": "¿Seguro? Esta acción no se puede deshacer.",
+    "confirmDeleteBtn": "Sí, eliminar mi cuenta",
+    "deleting": "Eliminando...",
+    "saving": "Guardando...",
+    "passwordUpdated": "Contraseña actualizada ✓",
+    "passwordMismatch": "Las contraseñas no coinciden",
+    "passwordShort": "Mínimo 6 caracteres"
+  },
+  "cookie": {
+    "title": "Usamos cookies",
+    "desc": "Utilizamos cookies para mejorar tu experiencia, analizar el tráfico y personalizar el contenido.",
+    "accept": "Aceptar todas",
+    "reject": "Rechazar",
+    "configure": "Configurar",
+    "analytics": "Cookies analíticas",
+    "analyticsDesc": "Nos ayudan a entender cómo usas la web",
+    "marketing": "Cookies de marketing",
+    "marketingDesc": "Para mostrarte contenido relevante",
+    "saveConfig": "Guardar configuración"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Artículos sobre seguridad, code review y desarrollo",
+    "readMore": "Leer artículo →",
+    "minRead": "min de lectura",
+    "backToBlog": "← Volver al blog",
+    "ctaTitle": "¿Listo para revisar tu código?",
+    "ctaSubtitle": "Detecta vulnerabilidades y bugs en segundos.",
+    "ctaBtn": "Analizar mi código gratis →"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Privacidad",
+    "terms": "Términos"
+  }
+}

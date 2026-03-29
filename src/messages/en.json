@@ -1,0 +1,165 @@
+{
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Pricing",
+    "compare": "Compare",
+    "login": "Sign in",
+    "signup": "Start free",
+    "account": "My account",
+    "dashboard": "Go to dashboard",
+    "admin": "Admin",
+    "logout": "Sign out"
+  },
+  "hero": {
+    "badge": "Detect security vulnerabilities before anyone else",
+    "title": "AI-powered Code Review focused on",
+    "titleHighlight": "Security",
+    "subtitle": "Detect OWASP vulnerabilities, critical bugs, and performance issues in seconds. No installation. No repository connection.",
+    "cta": "Analyze my code for free →",
+    "compare": "Compare with alternatives →",
+    "social1": "5 free reviews · No credit card · Ready in 30 seconds",
+    "noGithub": "✓ No GitHub or GitLab account needed",
+    "langs": "✓ Compatible with 10+ languages",
+    "owasp": "✓ OWASP Top 10 analysis",
+    "time": "✓ Results in under 30s"
+  },
+  "tagline": "More than a linter. A security expert.",
+  "features": {
+    "title": "Everything you need for secure code",
+    "subtitle": "Deep analysis in seconds, no configuration, no repository access required.",
+    "security": {
+      "title": "Security Analysis",
+      "desc": "Detect OWASP Top 10 vulnerabilities, SQL injections, XSS, CSRF and more before they reach production."
+    },
+    "bugs": {
+      "title": "Bug Detection",
+      "desc": "Find critical bugs, race conditions, memory leaks and logic errors that linters miss."
+    },
+    "performance": {
+      "title": "Performance Optimization",
+      "desc": "Identify bottlenecks, N+1 queries, unnecessary operations and get concrete optimization suggestions."
+    },
+    "instant": {
+      "title": "Instant Results",
+      "desc": "Full analysis in under 30 seconds. No extensions to install, no GitHub connection, no configuration."
+    },
+    "langs": {
+      "title": "Multi-language",
+      "desc": "Compatible with Python, JavaScript, TypeScript, Java, Go, PHP, Ruby, Rust, C++ and 10+ languages."
+    },
+    "privacy": {
+      "title": "Total Privacy",
+      "desc": "Your code is never stored. Every analysis is ephemeral. GDPR compliant. Your secrets stay yours."
+    }
+  },
+  "pricing": {
+    "title": "Simple, transparent pricing",
+    "subtitle": "Start for free. No credit card required.",
+    "free": "Free",
+    "month": "/mo",
+    "currentPlan": "Current plan",
+    "startFree": "Start for free",
+    "getStarted": "Get started",
+    "contact": "Contact us",
+    "popular": "Most popular",
+    "reviews": "reviews/month",
+    "unlimited": "Unlimited"
+  },
+  "dashboard": {
+    "title": "Analyze your code",
+    "subtitle": "Paste your code, select the language and get a detailed analysis in seconds.",
+    "placeholder": "Paste your code here...",
+    "language": "Language",
+    "auto": "Auto-detect",
+    "analyze": "Analyze code",
+    "analyzing": "Analyzing...",
+    "score": "Score",
+    "issues": "Issues",
+    "security": "Security",
+    "suggestions": "Suggestions",
+    "performance": "Performance",
+    "noIssues": "No issues detected",
+    "noSecurity": "No security issues",
+    "noSuggestions": "No suggestions",
+    "noPerformance": "No performance notes",
+    "limitReached": "You've reached the free review limit.",
+    "upgrade": "Go Pro",
+    "reviewsLeft": "reviews left",
+    "unlimited": "Unlimited",
+    "plan": "Plan"
+  },
+  "auth": {
+    "loginTitle": "Sign in",
+    "loginSubtitle": "Welcome back",
+    "signupTitle": "Create account",
+    "signupSubtitle": "Start free, no credit card",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot your password?",
+    "loginBtn": "Sign in",
+    "signupBtn": "Create account",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "createOne": "Create one for free",
+    "loginHere": "Sign in",
+    "forgotTitle": "Reset password",
+    "forgotSubtitle": "We'll send a link to your email",
+    "sendLink": "Send link",
+    "backToLogin": "← Back to login",
+    "resetTitle": "New password",
+    "resetBtn": "Change password"
+  },
+  "account": {
+    "title": "My account",
+    "info": "Account information",
+    "emailLabel": "Email",
+    "changePassword": "Change password →",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm new password",
+    "save": "Save",
+    "cancel": "Cancel",
+    "subscription": "Subscription",
+    "active": "Active",
+    "manageBilling": "Manage billing",
+    "upgradePro": "Upgrade to Pro →",
+    "usage": "Usage this month",
+    "reviewsDone": "Reviews completed",
+    "danger": "Danger zone",
+    "deleteAccount": "Delete account",
+    "deleteDesc": "This action is irreversible. All your data will be deleted.",
+    "confirmDelete": "Are you sure? This action cannot be undone.",
+    "confirmDeleteBtn": "Yes, delete my account",
+    "deleting": "Deleting...",
+    "saving": "Saving...",
+    "passwordUpdated": "Password updated ✓",
+    "passwordMismatch": "Passwords do not match",
+    "passwordShort": "Minimum 6 characters"
+  },
+  "cookie": {
+    "title": "We use cookies",
+    "desc": "We use cookies to improve your experience, analyze traffic and personalize content.",
+    "accept": "Accept all",
+    "reject": "Reject",
+    "configure": "Configure",
+    "analytics": "Analytics cookies",
+    "analyticsDesc": "Help us understand how you use the site",
+    "marketing": "Marketing cookies",
+    "marketingDesc": "To show you relevant content",
+    "saveConfig": "Save settings"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Articles about security, code review and development",
+    "readMore": "Read article →",
+    "minRead": "min read",
+    "backToBlog": "← Back to blog",
+    "ctaTitle": "Ready to review your code?",
+    "ctaSubtitle": "Detect vulnerabilities and bugs in seconds.",
+    "ctaBtn": "Analyze my code for free →"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  }
+}
