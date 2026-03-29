@@ -1,12 +1,11 @@
 import Link from 'next/link'
-import { PLANS } from '@/types'
 import { createClient } from '@/lib/supabase/server'
 import type { Metadata } from 'next'
-import PricingButtons from './PricingButtons'
+import PricingClient from './PricingClient'
 
 export const metadata: Metadata = {
   title: 'Precios — CodeReview AI',
-  description: 'Plan gratuito con 5 reviews al mes. Plan Pro ilimitado por $12/mes. Sin permanencia.',
+  description: 'Plan gratuito con 5 reviews al mes. Plan Pro ilimitado por $12/mes o $96/año. 7 días de garantía de devolución.',
 }
 
 export default async function PricingPage() {
@@ -39,44 +38,7 @@ export default async function PricingPage() {
         </div>
       </nav>
 
-      <section className="max-w-5xl mx-auto px-6 py-20 text-center">
-        <h1 className="text-4xl font-bold text-[#e6edf3] mb-4">Precios simples y transparentes</h1>
-        <p className="text-[#8b949e] mb-16">Sin sorpresas. Cancela cuando quieras.</p>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {Object.entries(PLANS).map(([key, plan]) => (
-            <div
-              key={key}
-              className={`border rounded-xl p-8 text-left bg-[#161b22] ${
-                key === 'pro'
-                  ? 'border-blue-500 ring-2 ring-blue-500/50 ring-offset-2 ring-offset-[#0d1117]'
-                  : 'border-[#30363d]'
-              }`}
-            >
-              {key === 'pro' && (
-                <div className="bg-blue-600 text-white text-xs font-medium px-2 py-1 rounded-full inline-block mb-4">
-                  Más popular
-                </div>
-              )}
-              <h2 className="text-xl font-bold text-[#e6edf3] mb-2">{plan.name}</h2>
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-[#e6edf3]">${plan.price}</span>
-                {plan.price > 0 && <span className="text-[#8b949e] ml-1">/mes</span>}
-                {plan.price === 0 && <span className="text-[#8b949e] ml-1">gratis</span>}
-              </div>
-              <ul className="space-y-3 mb-8">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2 text-sm text-[#8b949e]">
-                    <span className="text-green-400 mt-0.5">✓</span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <PricingButtons planKey={key} planName={plan.name} price={plan.price} isLoggedIn={!!user} />
-            </div>
-          ))}
-        </div>
-      </section>
+      <PricingClient isLoggedIn={!!user} />
     </div>
   )
 }

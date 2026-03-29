@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { reviewCode } from '@/lib/claude'
 import { canReview } from '@/lib/utils'
+import { sendConversionEmail } from '@/lib/resend'
 
 export async function POST(request: NextRequest) {
   try {
@@ -54,10 +55,16 @@ export async function POST(request: NextRequest) {
       .select()
       .single()
 
+    const newCount = profile.reviews_used + 1
     await supabase
       .from('profiles')
-      .update({ reviews_used: profile.reviews_used + 1 })
+      .update({ reviews_used: newCount })
       .eq('id', user.id)
+
+    // Send conversion email at 3rd review (fire-and-forget)
+    if (newCount === 3 && profile.plan === 'free') {
+      sendConversionEmail(user.email!).catch(() => {})
+    }
 
     return NextResponse.json({ review, result })
   } catch (error) {

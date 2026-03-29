@@ -45,6 +45,14 @@ export const metadata: Metadata = {
   verification: {
     google: 'google8f5fc260f78f8a75',
   },
+  alternates: {
+    canonical: APP_URL,
+    languages: {
+      'es': APP_URL,
+      'en': APP_URL,
+      'x-default': APP_URL,
+    },
+  },
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {

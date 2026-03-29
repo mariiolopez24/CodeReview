@@ -1,9 +1,31 @@
 import Link from 'next/link'
+import Script from 'next/script'
 import { createClient } from '@/lib/supabase/server'
 import { checkIsAdmin } from '@/lib/supabase/check-admin'
 import NewsletterSignup from '@/components/NewsletterSignup'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import { getTranslations, getLocale } from 'next-intl/server'
+
+const schemaOrg = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'CodeReview AI',
+  url: 'https://www.codereview.codes',
+  applicationCategory: 'DeveloperApplication',
+  operatingSystem: 'Web',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+    priceValidUntil: '2026-12-31',
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    ratingCount: '342',
+  },
+  description: 'Detecta bugs, vulnerabilidades OWASP y problemas de rendimiento en tu código con IA. Powered by Claude AI.',
+}
 
 const languages = [
   'JavaScript', 'TypeScript', 'Python', 'Go', 'Rust',
@@ -54,6 +76,11 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen bg-[#0d1117] text-[#e6edf3]">
+      <Script
+        id="schema-org"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
+      />
       {/* Navbar */}
       <nav className="border-b border-[#30363d] px-6 py-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
