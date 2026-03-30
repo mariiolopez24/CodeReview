@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase/server'
 import { checkIsAdmin } from '@/lib/supabase/check-admin'
 import NewsletterSignup from '@/components/NewsletterSignup'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
+import ExitIntentPopup from '@/components/ExitIntentPopup'
 import { getTranslations, getLocale } from 'next-intl/server'
 
 const schemaOrg = {
@@ -76,6 +77,7 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen bg-[#0d1117] text-[#e6edf3]">
+      {!user && <ExitIntentPopup />}
       <Script
         id="schema-org"
         type="application/ld+json"

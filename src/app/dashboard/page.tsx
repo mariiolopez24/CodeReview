@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation'
 import DashboardNav from '@/components/DashboardNav'
 import DashboardTabs from '@/components/DashboardTabs'
 import AdBanner from '@/components/AdBanner'
+import ExitIntentPopup from '@/components/ExitIntentPopup'
 import { checkIsAdmin } from '@/lib/supabase/check-admin'
 import { getLocale, getTranslations } from 'next-intl/server'
 
@@ -33,6 +34,7 @@ export default async function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-[#0d1117]">
+      {(profile?.plan ?? 'free') === 'free' && <ExitIntentPopup />}
       <DashboardNav
         plan={profile?.plan ?? 'free'}
         reviewsLeft={reviewsLeft}

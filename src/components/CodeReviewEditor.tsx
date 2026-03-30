@@ -50,10 +50,11 @@ export default function CodeReviewEditor({ plan, reviewsUsed, reviewsLimit }: Pr
   const [showUpgradeBanner, setShowUpgradeBanner] = useState(false)
   const [showPaywall, setShowPaywall] = useState(false)
   const [paywallResult, setPaywallResult] = useState<ReviewResult | null>(null)
+  const [showOnboardingTooltip, setShowOnboardingTooltip] = useState(false)
 
   const canReview = reviewsLimit === -1 || reviewsUsed < reviewsLimit
   const reviewsLeft = reviewsLimit === -1 ? Infinity : reviewsLimit - reviewsUsed
-  const isNearLimit = reviewsLimit !== -1 && reviewsLeft === 1
+  const isNearLimit = reviewsLimit !== -1 && reviewsLeft <= 2
 
   useEffect(() => {
     const visited = localStorage.getItem('codereview_visited')
@@ -61,6 +62,8 @@ export default function CodeReviewEditor({ plan, reviewsUsed, reviewsLimit }: Pr
       setCode(EXAMPLE_CODE)
       setLanguage('python')
       localStorage.setItem('codereview_visited', '1')
+      setShowOnboardingTooltip(true)
+      setTimeout(() => setShowOnboardingTooltip(false), 8000)
     }
   }, [])
 
@@ -86,20 +89,19 @@ export default function CodeReviewEditor({ plan, reviewsUsed, reviewsLimit }: Pr
       }
 
       const reviewResult = data.result as ReviewResult
+      setShowOnboardingTooltip(false)
 
-      // Show upgrade banner when on last free review
-      if (isNearLimit) {
-        setShowUpgradeBanner(true)
-      }
-
-      // If this was the last free review, show paywall with partial results
-      if (reviewsLimit !== -1 && reviewsUsed + 1 >= reviewsLimit) {
+      // Progressive limit wall
+      const newReviewsUsed = reviewsUsed + 1
+      if (reviewsLimit !== -1 && newReviewsUsed >= reviewsLimit) {
         setPaywallResult(reviewResult)
         setShowPaywall(true)
-        // Show only summary and score, blur the rest
         setResult(reviewResult)
       } else {
         setResult(reviewResult)
+        if (reviewsLimit !== -1 && reviewsLimit - newReviewsUsed <= 2) {
+          setShowUpgradeBanner(true)
+        }
       }
     } catch {
       setError('Error de conexión. Intenta de nuevo.')
@@ -108,20 +110,30 @@ export default function CodeReviewEditor({ plan, reviewsUsed, reviewsLimit }: Pr
     }
   }
 
+  const reviewsLeftAfter = reviewsLimit === -1 ? Infinity : reviewsLimit - reviewsUsed - 1
+
   return (
     <div className="space-y-4">
-      {/* Near-limit warning banner */}
-      {showUpgradeBanner && !showPaywall && (
+      {/* Progressive limit banners */}
+      {showUpgradeBanner && !showPaywall && reviewsLeftAfter === 1 && (
         <div className="bg-yellow-900/30 border border-yellow-600/50 rounded-xl px-4 py-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-yellow-400 text-sm">
             <span>⚡</span>
-            <span>Último análisis gratuito — hazte Pro para análisis ilimitados</span>
+            <span>Te queda <strong>1 análisis gratuito</strong> este mes</span>
           </div>
-          <a
-            href="/pricing"
-            className="bg-yellow-500 text-black text-xs font-semibold px-3 py-1.5 rounded-lg hover:bg-yellow-400 transition-colors whitespace-nowrap"
-          >
-            Ver planes →
+          <a href="/pricing" className="bg-yellow-500 text-black text-xs font-semibold px-3 py-1.5 rounded-lg hover:bg-yellow-400 transition-colors whitespace-nowrap">
+            Ver Pro →
+          </a>
+        </div>
+      )}
+      {showUpgradeBanner && !showPaywall && reviewsLeftAfter === 0 && (
+        <div className="bg-orange-900/40 border border-orange-500/60 rounded-xl px-4 py-3 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-2 text-orange-300 text-sm">
+            <span>🔥</span>
+            <span><strong>Último análisis gratuito usado.</strong> Los usuarios Pro detectan 3x más bugs.</span>
+          </div>
+          <a href="/pricing" className="bg-orange-500 text-white text-xs font-semibold px-3 py-1.5 rounded-lg hover:bg-orange-400 transition-colors whitespace-nowrap">
+            Hazte Pro →
           </a>
         </div>
       )}
@@ -159,19 +171,31 @@ export default function CodeReviewEditor({ plan, reviewsUsed, reviewsLimit }: Pr
                 Upgrade para continuar →
               </a>
             ) : (
-              <button
-                onClick={handleReview}
-                disabled={loading || !code.trim()}
-                className="bg-blue-600 text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-blue-500 disabled:opacity-40 transition-colors"
-              >
-                {loading ? (
-                  <span className="flex items-center gap-2">
-                    <span className="animate-spin inline-block">⟳</span> Analizando...
-                  </span>
-                ) : (
-                  'Analizar código →'
+              <div className="relative">
+                {showOnboardingTooltip && (
+                  <div className="absolute -top-14 right-0 bg-blue-600 text-white text-xs px-3 py-2 rounded-lg whitespace-nowrap shadow-lg z-10">
+                    Este código tiene 3 problemas. ¡Pulsa para verlos!
+                    <div className="absolute -bottom-1.5 right-6 w-3 h-3 bg-blue-600 rotate-45" />
+                  </div>
                 )}
-              </button>
+                <button
+                  onClick={handleReview}
+                  disabled={loading || !code.trim()}
+                  className={`text-white px-6 py-2 rounded-lg text-sm font-medium disabled:opacity-40 transition-all ${
+                    showOnboardingTooltip
+                      ? 'bg-blue-500 ring-2 ring-blue-400 ring-offset-2 ring-offset-[#161b22] animate-pulse'
+                      : 'bg-blue-600 hover:bg-blue-500'
+                  }`}
+                >
+                  {loading ? (
+                    <span className="flex items-center gap-2">
+                      <span className="animate-spin inline-block">⟳</span> Analizando...
+                    </span>
+                  ) : (
+                    'Analizar código →'
+                  )}
+                </button>
+              </div>
             )}
           </div>
         </div>
