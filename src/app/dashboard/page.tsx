@@ -57,7 +57,7 @@ export default async function DashboardPage() {
         {(profile?.plan ?? 'free') === 'free' && (
           <div className="mt-8 space-y-3">
             <AdBanner
-              slot="1234567890"
+              slot="4341195177"
               format="horizontal"
               className="border border-[#30363d] rounded-xl p-3 bg-[#161b22]"
             />
