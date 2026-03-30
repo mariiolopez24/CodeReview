@@ -27,10 +27,11 @@ export async function reviewCode(code: string, language: string = 'auto', locale
   "issues": [{ "type": "error|warning|info", "line": <opcional>, "message": "Descripción del problema", "fix": "Cómo solucionarlo" }],
   "suggestions": [{ "category": "Legibilidad|Rendimiento|Buenas Prácticas|Arquitectura", "message": "Descripción", "example": "Ejemplo opcional" }],
   "security": [{ "severity": "critical|high|medium|low", "message": "Problema de seguridad", "fix": "Solución" }],
-  "performance": [{ "message": "Nota de rendimiento", "impact": "high|medium|low" }]
+  "performance": [{ "message": "Nota de rendimiento", "impact": "high|medium|low" }],
+  "corrected_code": "El código completo corregido con todos los problemas solucionados, listo para copiar y pegar"
 }
 
-Devuelve ÚNICAMENTE el JSON, sin markdown, sin explicaciones.
+Devuelve ÚNICAMENTE el JSON, sin markdown, sin explicaciones. El campo corrected_code debe contener el código completo mejorado y seguro.
 
 Código a revisar:
 \`\`\`
@@ -44,10 +45,11 @@ ${code}
   "issues": [{ "type": "error|warning|info", "line": <optional>, "message": "Issue description", "fix": "How to fix it" }],
   "suggestions": [{ "category": "Readability|Performance|Best Practices|Architecture", "message": "Description", "example": "Optional example" }],
   "security": [{ "severity": "critical|high|medium|low", "message": "Security issue", "fix": "Fix" }],
-  "performance": [{ "message": "Performance note", "impact": "high|medium|low" }]
+  "performance": [{ "message": "Performance note", "impact": "high|medium|low" }],
+  "corrected_code": "The complete corrected code with all issues fixed, ready to copy and paste"
 }
 
-Return ONLY the JSON, no markdown, no explanation.
+Return ONLY the JSON, no markdown, no explanation. The corrected_code field must contain the full improved and secure code.
 
 Code to review:
 \`\`\`

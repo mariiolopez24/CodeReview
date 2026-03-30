@@ -208,7 +208,7 @@ export default function CodeReviewEditor({ plan, reviewsUsed, reviewsLimit }: Pr
               {plan === 'free' && (
                 <div className="px-4 pb-4">
                   <AdBanner
-                    slot="RESULTS_SLOT_ID"
+                    slot="7849861624"
                     format="rectangle"
                     className="border border-[#30363d] rounded-xl p-2 bg-[#0d1117]"
                   />
@@ -338,6 +338,40 @@ function ReviewResults({ result }: { result: ReviewResult }) {
           </div>
         </div>
       )}
+
+      {/* Corrected code */}
+      {result.corrected_code && (
+        <CorrectedCode code={result.corrected_code} />
+      )}
+    </div>
+  )
+}
+
+function CorrectedCode({ code }: { code: string }) {
+  const [copied, setCopied] = useState(false)
+
+  function handleCopy() {
+    navigator.clipboard.writeText(code)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-2">
+        <h3 className="text-xs font-semibold text-green-400 uppercase tracking-wider">
+          Código corregido
+        </h3>
+        <button
+          onClick={handleCopy}
+          className="flex items-center gap-1.5 text-xs bg-green-900/30 border border-green-700/40 text-green-400 px-2.5 py-1 rounded-lg hover:bg-green-900/50 transition-colors"
+        >
+          {copied ? '✓ Copiado' : '⎘ Copiar'}
+        </button>
+      </div>
+      <pre className="bg-[#0d1117] border border-green-700/30 rounded-lg p-3 overflow-x-auto text-xs text-[#e6edf3] font-mono whitespace-pre-wrap max-h-72 overflow-y-auto">
+        {code}
+      </pre>
     </div>
   )
 }

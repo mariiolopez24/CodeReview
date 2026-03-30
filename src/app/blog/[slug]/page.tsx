@@ -91,7 +91,7 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* Ad mid-article */}
         <AdBanner
-          slot="BLOG_SLOT_ID"
+          slot="2836541811"
           format="horizontal"
           className="my-8 border border-[#30363d] rounded-xl p-3 bg-[#161b22]"
         />

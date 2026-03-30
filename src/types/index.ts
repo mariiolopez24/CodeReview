@@ -27,6 +27,7 @@ export interface ReviewResult {
   suggestions: Suggestion[]
   security: SecurityIssue[]
   performance: PerformanceNote[]
+  corrected_code?: string
 }
 
 export interface Issue {
