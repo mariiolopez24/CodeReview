@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import type { BlogPost } from '@/lib/blog'
 import NewsletterSignup from '@/components/NewsletterSignup'
+import AdBanner from '@/components/AdBanner'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -87,6 +88,13 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* Content rendered as markdown */}
         <MarkdownContent content={p.content} />
+
+        {/* Ad mid-article */}
+        <AdBanner
+          slot="BLOG_SLOT_ID"
+          format="horizontal"
+          className="my-8 border border-[#30363d] rounded-xl p-3 bg-[#161b22]"
+        />
 
         {/* Newsletter mid-article */}
         <div className="my-12">

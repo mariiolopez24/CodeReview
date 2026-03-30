@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import type { ReviewResult } from '@/types'
+import AdBanner from '@/components/AdBanner'
 
 const LANGUAGES = [
   'auto', 'javascript', 'typescript', 'python', 'go',
@@ -201,7 +202,20 @@ export default function CodeReviewEditor({ plan, reviewsUsed, reviewsLimit }: Pr
             </div>
           )}
 
-          {result && !showPaywall && <ReviewResults result={result} />}
+          {result && !showPaywall && (
+            <>
+              <ReviewResults result={result} />
+              {plan === 'free' && (
+                <div className="px-4 pb-4">
+                  <AdBanner
+                    slot="RESULTS_SLOT_ID"
+                    format="rectangle"
+                    className="border border-[#30363d] rounded-xl p-2 bg-[#0d1117]"
+                  />
+                </div>
+              )}
+            </>
+          )}
 
           {result && showPaywall && (
             <div className="relative">
