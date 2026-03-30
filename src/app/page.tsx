@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import Script from 'next/script'
 import { createClient } from '@/lib/supabase/server'
 import { checkIsAdmin } from '@/lib/supabase/check-admin'
@@ -88,7 +87,7 @@ export default async function Home() {
       <nav className="border-b border-[#30363d] px-6 py-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
-            <Image src="/logo.png" alt="CodeReview AI" width={32} height={32} className="drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
+            <img src="/logo.png" alt="CodeReview AI" width={32} height={32} className="drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
             <span className="font-bold text-[#e6edf3] text-xl">CodeReview <span className="text-blue-400">AI</span></span>
           </Link>
           <div className="flex items-center gap-4">

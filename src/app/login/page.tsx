@@ -3,7 +3,6 @@
 import { Suspense, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import Link from 'next/link'
-import Image from 'next/image'
 import { useRouter, useSearchParams } from 'next/navigation'
 
 function LoginForm() {
@@ -120,7 +119,7 @@ export default function LoginPage() {
       {/* Left: value proposition */}
       <div className="hidden lg:flex flex-col justify-center px-16 bg-[#161b22] border-r border-[#30363d] w-[420px] shrink-0">
         <Link href="/" className="flex items-center gap-2 mb-12 hover:opacity-90 transition-opacity">
-          <Image src="/logo.png" alt="CodeReview AI" width={36} height={36} className="drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
+          <img src="/logo.png" alt="CodeReview AI" width={36} height={36} className="drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
           <span className="font-bold text-[#e6edf3] text-xl">CodeReview <span className="text-blue-400">AI</span></span>
         </Link>
         <h2 className="text-2xl font-bold text-[#e6edf3] mb-3 leading-tight">
@@ -151,7 +150,7 @@ export default function LoginPage() {
       <div className="flex-1 flex items-center justify-center px-6">
         <div className="bg-[#161b22] border border-[#30363d] rounded-xl p-8 w-full max-w-sm lg:border-0 lg:bg-transparent lg:shadow-none">
           <Link href="/" className="flex items-center justify-center gap-2 mb-8 lg:hidden hover:opacity-90 transition-opacity">
-            <Image src="/logo.png" alt="CodeReview AI" width={32} height={32} className="drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]" />
+            <img src="/logo.png" alt="CodeReview AI" width={32} height={32} className="drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]" />
             <span className="font-bold text-[#e6edf3] text-xl">CodeReview <span className="text-blue-400">AI</span></span>
           </Link>
           <Suspense fallback={<div className="text-[#484f58] text-sm text-center py-4">Cargando...</div>}>
