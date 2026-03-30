@@ -71,6 +71,18 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <CookieBanner />
         </NextIntlClientProvider>
         <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-YD5Q7X90W2"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-YD5Q7X90W2');
+          `}
+        </Script>
+        <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9314147156293164"
           crossOrigin="anonymous"
           strategy="afterInteractive"
