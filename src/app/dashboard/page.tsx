@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import DashboardNav from '@/components/DashboardNav'
 import DashboardTabs from '@/components/DashboardTabs'
+import AdBanner from '@/components/AdBanner'
 import { checkIsAdmin } from '@/lib/supabase/check-admin'
 import { getLocale, getTranslations } from 'next-intl/server'
 
@@ -52,6 +53,22 @@ export default async function DashboardPage() {
           reviewsLimit={reviewsLimit}
           recentReviews={recentReviews ?? []}
         />
+
+        {(profile?.plan ?? 'free') === 'free' && (
+          <div className="mt-8 space-y-3">
+            <AdBanner
+              slot="1234567890"
+              format="horizontal"
+              className="border border-[#30363d] rounded-xl p-3 bg-[#161b22]"
+            />
+            <p className="text-center text-xs text-[#484f58]">
+              ¿Cansado de los anuncios?{' '}
+              <a href="/pricing" className="text-blue-400 hover:text-blue-300">
+                Hazte Pro y elimínalos →
+              </a>
+            </p>
+          </div>
+        )}
       </main>
     </div>
   )
