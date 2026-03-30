@@ -68,7 +68,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <head>
         <Script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9314147156293164"
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
