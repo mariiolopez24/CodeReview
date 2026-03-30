@@ -5,6 +5,7 @@ export const dynamic = 'force-dynamic'
 import { useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
 export default function SignupPage() {
@@ -58,8 +59,9 @@ export default function SignupPage() {
     <div className="min-h-screen bg-[#0d1117] flex">
       {/* Left: value proposition */}
       <div className="hidden lg:flex flex-col justify-center px-16 bg-[#161b22] border-r border-[#30363d] w-[420px] shrink-0">
-        <Link href="/" className="font-bold text-[#e6edf3] text-xl mb-12 inline-block">
-          CodeReview <span className="text-blue-400">AI</span>
+        <Link href="/" className="flex items-center gap-2 mb-12 hover:opacity-90 transition-opacity">
+          <Image src="/logo.png" alt="CodeReview AI" width={36} height={36} className="drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
+          <span className="font-bold text-[#e6edf3] text-xl">CodeReview <span className="text-blue-400">AI</span></span>
         </Link>
         <h2 className="text-2xl font-bold text-[#e6edf3] mb-3 leading-tight">
           Empieza gratis.<br />Sin tarjeta de crédito.
@@ -88,8 +90,9 @@ export default function SignupPage() {
       {/* Right: form */}
       <div className="flex-1 flex items-center justify-center px-6">
         <div className="bg-[#161b22] border border-[#30363d] rounded-xl p-8 w-full max-w-sm lg:border-0 lg:bg-transparent lg:shadow-none">
-          <Link href="/" className="block text-center font-bold text-[#e6edf3] text-xl mb-8 lg:hidden">
-            CodeReview <span className="text-blue-400">AI</span>
+          <Link href="/" className="flex items-center justify-center gap-2 mb-8 lg:hidden hover:opacity-90 transition-opacity">
+            <Image src="/logo.png" alt="CodeReview AI" width={32} height={32} className="drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]" />
+            <span className="font-bold text-[#e6edf3] text-xl">CodeReview <span className="text-blue-400">AI</span></span>
           </Link>
 
           <h1 className="text-2xl font-bold text-[#e6edf3] mb-1">Crear cuenta gratis</h1>

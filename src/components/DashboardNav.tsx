@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import LanguageSwitcher from './LanguageSwitcher'
 import { useTranslations } from 'next-intl'
 
@@ -18,8 +19,9 @@ export default function DashboardNav({ plan, reviewsLeft, email, isAdmin, locale
   return (
     <header className="bg-[#161b22] border-b border-[#30363d] px-6 py-4">
       <div className="max-w-6xl mx-auto flex items-center justify-between">
-        <Link href="/" className="font-bold text-[#e6edf3] text-xl hover:text-white transition-colors">
-          CodeReview <span className="text-blue-400">AI</span>
+        <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
+          <Image src="/logo.png" alt="CodeReview AI" width={28} height={28} className="drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]" />
+          <span className="font-bold text-[#e6edf3] text-xl">CodeReview <span className="text-blue-400">AI</span></span>
         </Link>
 
         <div className="flex items-center gap-4">

@@ -43,6 +43,10 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, 'max-snippet': -1 },
   },
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
   verification: {
     google: 'google8f5fc260f78f8a75',
   },
