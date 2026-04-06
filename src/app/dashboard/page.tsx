@@ -44,6 +44,25 @@ export default async function DashboardPage() {
       />
 
       <main className="max-w-6xl mx-auto px-6 py-8">
+        {(profile?.plan ?? 'free') === 'free' && (
+          <div className="mb-6 bg-gradient-to-r from-blue-900/40 to-purple-900/30 border border-blue-500/30 rounded-xl px-5 py-4 flex items-center justify-between gap-4">
+            <div>
+              <p className="text-sm font-semibold text-[#e6edf3]">
+                Estás en el plan gratuito — {typeof reviewsLeft === 'number' ? reviewsLeft : '∞'} análisis restantes este mes
+              </p>
+              <p className="text-xs text-[#8b949e] mt-0.5">
+                Pro: análisis ilimitados, sin anuncios, código corregido completo · desde $12/mes
+              </p>
+            </div>
+            <a
+              href="/pricing"
+              className="shrink-0 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors whitespace-nowrap"
+            >
+              Ver planes →
+            </a>
+          </div>
+        )}
+
         <div className="mb-6">
           <h1 className="text-2xl font-bold text-[#e6edf3]">{t('dashboard.title')}</h1>
           <p className="text-[#8b949e] mt-1">{t('dashboard.subtitle')}</p>
